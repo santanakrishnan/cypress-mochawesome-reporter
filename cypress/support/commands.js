@@ -19,3 +19,32 @@ Cypress.Commands.add('validateTestHasScreenshot', (testTitle, numberOfScreenshot
         });
     });
 });
+Cypress.Commands.add('validateTestHasVideo', (testTitle) => {
+    cy.get(`[title="${testTitle}"]`)
+        .click()
+        .parents('li[class*="test--component"]')
+        .then(([$el]) => {
+            cy.wrap($el)
+                .find('video')
+                .then(($vids) => {
+                    cy.wrap($vids)
+                        .should('have.length', 1)
+                        .each(([$vid]) => {
+                            cy.wrap($vid)
+                                .should('be.visible')
+                                .find('source')
+                                .should('have.attr', 'type', 'video/mp4')
+                        });
+                });
+        });
+});
+Cypress.Commands.add('validateTestHasNoVideo', (testTitle) => {
+    cy.get(`[title="${testTitle}"]`)
+        .click()
+        .parents('li[class*="test--component"]')
+        .then(([$el]) => {
+            cy.wrap($el)
+                .find('video')
+                .should('not.exist')
+        });
+});

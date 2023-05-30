@@ -11,6 +11,8 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
+    ignoreVideos: true,
+    videoOnFailOnly: false
   },
   e2e: {
     setupNodeEvents(on, config) {
