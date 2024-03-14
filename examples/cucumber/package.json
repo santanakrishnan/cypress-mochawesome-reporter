@@ -1,5 +1,5 @@
 {
-  "name": "@example/screenshots-folder",
+  "name": "@example/cucumber",
   "version": "1.0.0",
   "scripts": {
     "cypress:open": "cypress open",
@@ -7,7 +7,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^19.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "cypress": "^13.1.0",
+    "cypress-on-fix": "^1.0.2",
     "cypress-mochawesome-reporter": "../../"
   }
 }
